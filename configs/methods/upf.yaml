@@ -1,0 +1,7 @@
+policy: upf               # Regol et al. (ICML 2025): forecast keep vs retrain cost, priced in energy
+lam: 1.0                  # retraining cost = lam x update joules, in error units
+horizon: 10               # steps both branches are costed over (VoU's horizon)
+ridge: 0.001              # ridge penalty of the linear performance forecaster
+refit: 8                  # steps between refits
+warmup_models: 3          # adapters trained on a fixed schedule before the forecaster decides
+warmup_period: 8

@@ -1,0 +1,8 @@
+file: synthetic           # regime switching with irreducible noise bursts (stress test)
+synthetic: {length: 24000, channels: 8, seed: 0}
+season: 96
+stride: 24
+start: 2000
+n_steps: 800
+warmup: 2000
+freq_token: 5        # TTM-R2 frequency token: 15 min

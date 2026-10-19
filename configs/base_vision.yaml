@@ -1,0 +1,31 @@
+# Base run config for vision streams (task: vision). Groups (dataset, method, energy) are merged as in base.yaml.
+seed: 0
+tag: null
+threads: 1
+device: cpu
+checkpoint: checkpoints/vit_tiny_core50.pt
+retention: checkpoints/vit_tiny_retention.npz
+
+model: {name: vit_tiny_patch16_224.augreg_in21k_ft_in1k, img_size: 96, num_classes: 10}
+
+learner:
+  adapt_blocks: 2         # LoRA on the last k ViT blocks, plus the classifier head
+  rank: 4
+  alpha: 8
+  lora_targets: [attn.qkv, attn.proj, mlp.fc1, mlp.fc2]
+  train_head: true
+  lr: 0.001
+  steps_per_update: 4
+  buffer_steps: 16        # FIFO of the most recent labelled batches
+  cache_prefix: true
+
+loop:
+  cost_ema: 0.3
+  min_buffer: 4
+  buffer_eval: false
+  rolling_k: 8
+  budget: null
+
+dataset: {name: core50}
+method: {name: vou}
+energy: {name: analytic_45nm}

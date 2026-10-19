@@ -1,0 +1,20 @@
+# Measured-energy round 1: reduced grid, 1 seed. Run per device with
+#   sweep.py configs/sweeps/measured.yaml --energy measured_<dev> --out results/measured/<dev> --set device=...
+# The oracle is excluded: its preview updates would be charged as decision energy.
+# VoU keeps the analytic lam values: each measured run divides its prices by a measured price
+# scale (measured / analytic joules of the same update, engine/measured.py).
+out: results/measured
+datasets: [synthetic, ettm1, electricity, solar]
+seeds: [0]
+runs:
+- {method: frozen, tag: frozen}
+- {method: periodic, tag: periodic_p1, set: {method.period: 1}}
+- {method: periodic, tag: periodic_p4, set: {method.period: 4}}
+- {method: periodic, tag: periodic_p16, set: {method.period: 16}}
+- {method: drift, tag: drift_t0.0, set: {method.tau: 0.0}}
+- {method: drift, tag: drift_t0.2, set: {method.tau: 0.2}}
+- {method: drift, tag: drift_t0.8, set: {method.tau: 0.8}}
+- {method: vou, tag: vou_l0.1, set: {method.lam: 0.1}}
+- {method: vou, tag: vou_l0.3, set: {method.lam: 0.3}}
+- {method: vou, tag: vou_l1, set: {method.lam: 1}}
+- {method: vou, tag: vou_l3, set: {method.lam: 3}}

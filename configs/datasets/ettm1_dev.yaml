@@ -1,0 +1,8 @@
+file: ETTm1.csv           # dev segment for learner hyperparameters; ends before the ettm1 stream starts
+channels: null
+season: 96
+stride: 24
+start: 2000
+n_steps: 300
+warmup: 2000
+freq_token: 5        # TTM-R2 frequency token: 15 min

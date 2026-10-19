@@ -1,0 +1,11 @@
+# CORe50 dev stream for designing grids: same target sessions in another order, first half of every
+# video's kept frames (disjoint from the evaluation stream's frames).
+task: vision
+root: data/core50
+sessions: [5, 11, 3, 8, 6, 10, 4, 9, 7]
+half: first
+n_steps: 800
+batch: 32
+seed: 100
+mean: [0.5, 0.5, 0.5]
+std: [0.5, 0.5, 0.5]

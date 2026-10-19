@@ -1,0 +1,178 @@
+# officehome: the CORe50 evaluation grid of the baselines unchanged — no tuning on this dataset; per-domain accuracy matrix; analytic energy, on GPU
+out: results/domains
+datasets:
+- officehome
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: cara
+  tag: carat_l0.2
+  set:
+    method.variant: threshold
+    method.lam: 0.2
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: carat_l0.15
+  set:
+    method.variant: threshold
+    method.lam: 0.15
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: carat_l0.1
+  set:
+    method.variant: threshold
+    method.lam: 0.1
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: carat_l0.01
+  set:
+    method.variant: threshold
+    method.lam: 0.01
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: carat_l0.001
+  set:
+    method.variant: threshold
+    method.lam: 0.001
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: caract_l0.4
+  set:
+    method.variant: cumulative
+    method.lam: 0.4
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: caract_l0.3
+  set:
+    method.variant: cumulative
+    method.lam: 0.3
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: caract_l0.2
+  set:
+    method.variant: cumulative
+    method.lam: 0.2
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: caract_l0.1
+  set:
+    method.variant: cumulative
+    method.lam: 0.1
+    domain_eval: {}
+    device: cuda
+- method: cara
+  tag: caract_l0.01
+  set:
+    method.variant: cumulative
+    method.lam: 0.01
+    domain_eval: {}
+    device: cuda
+- method: upf
+  tag: upf_l0.001
+  set:
+    method.lam: 0.001
+    domain_eval: {}
+    device: cuda
+- method: upf
+  tag: upf_l0.01
+  set:
+    method.lam: 0.01
+    domain_eval: {}
+    device: cuda
+- method: d3a
+  tag: d3a_w4_a1
+  set:
+    method.window: 4
+    method.alpha: 1
+    domain_eval: {}
+    device: cuda
+- method: d3a
+  tag: d3a_w4_a1.96
+  set:
+    method.window: 4
+    method.alpha: 1.96
+    domain_eval: {}
+    device: cuda
+- method: d3a
+  tag: d3a_w4_a3
+  set:
+    method.window: 4
+    method.alpha: 3
+    domain_eval: {}
+    device: cuda
+- method: upf
+  tag: upf_l0.02
+  set:
+    method.lam: 0.02
+    domain_eval: {}
+    device: cuda
+- method: upf
+  tag: upf_l0.05
+  set:
+    method.lam: 0.05
+    domain_eval: {}
+    device: cuda
+- method: periodic
+  tag: replay_p1
+  set:
+    method.period: 1
+    learner.replay:
+      size: 256
+      frac: 0.5
+    domain_eval: {}
+    device: cuda
+- method: periodic
+  tag: replay_p2
+  set:
+    method.period: 2
+    learner.replay:
+      size: 256
+      frac: 0.5
+    domain_eval: {}
+    device: cuda
+- method: periodic
+  tag: replay_p4
+  set:
+    method.period: 4
+    learner.replay:
+      size: 256
+      frac: 0.5
+    domain_eval: {}
+    device: cuda
+- method: periodic
+  tag: replay_p8
+  set:
+    method.period: 8
+    learner.replay:
+      size: 256
+      frac: 0.5
+    domain_eval: {}
+    device: cuda
+- method: periodic
+  tag: replay_p16
+  set:
+    method.period: 16
+    learner.replay:
+      size: 256
+      frac: 0.5
+    domain_eval: {}
+    device: cuda
+- method: periodic
+  tag: replay_p32
+  set:
+    method.period: 32
+    learner.replay:
+      size: 256
+      frac: 0.5
+    domain_eval: {}
+    device: cuda

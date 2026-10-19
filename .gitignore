@@ -1,0 +1,18 @@
+# Local data, runs, logs and outputs (logs/pretrain_vision.json is tracked: the vision report reads it)
+data/
+results/
+logs/
+paper/
+.superpowers/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Vision checkpoints and retention sets (~240 MB), rebuilt by scripts/pretrain_vision.py and scripts/pretrain_domains.py
+checkpoints/vit_tiny_*
+
+# Personal notes
+docs/notes/
+PITCH.md

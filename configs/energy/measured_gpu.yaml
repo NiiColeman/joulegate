@@ -1,0 +1,17 @@
+# Measured energy, model on the GPU: NVML energy counter of the one allocated A100 plus
+# the host's RAPL package and DRAM. The NVML counter refreshes about every 100 ms.
+backend: sampled
+counters:
+  - {name: gpu, type: nvml, index: 0, require_single: true, sample_s: 0.01}
+  - {name: cpu_pkg, type: rapl, path: /sys/class/powercap/intel-rapl:0, sample_s: 0.0005}
+  - {name: cpu_dram, type: rapl, path: /sys/class/powercap/intel-rapl:0:0, sample_s: 0.0005}
+idle_s: 30
+warmup_steps: 16          # forecasts in the warm-up (at least the buffer size)
+scale_window_s: 2.0       # back-to-back trial updates in one window this long set the price scale
+scale_min_updates: 5      # ... and at least this many of them
+scale_reference: analytic_45nm  # energy config the price scale is relative to
+max_closure: 0.01
+max_idle_drift: 0.05
+require_exclusive: true
+max_seconds: 3600
+pin: {main: 2, sampler: 3}

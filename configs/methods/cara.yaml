@@ -1,0 +1,4 @@
+policy: cara              # CARA (Mahadevan & Mathioudakis 2024), priced in energy like VoU
+variant: cumulative       # threshold (CARA-T) | cumulative (CARA-CT)
+lam: 1.0                  # retraining cost = lam x update joules, in error units (MASE or error rate)
+min_steps: 4

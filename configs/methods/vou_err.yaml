@@ -1,0 +1,11 @@
+policy: vou_err           # ablation: error-excess benefit estimate
+lam: 10.0                 # price of energy: MASE-steps required per joule
+horizon: 10               # steps an improvement is assumed to persist
+alpha_short: 0.5
+alpha_long: 0.05
+alpha_floor: 0.2
+alpha_g: 0.3
+g_init: 0.5
+g_min: 0.05
+probe_steps: 2
+min_steps: 4

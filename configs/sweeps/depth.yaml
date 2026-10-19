@@ -1,0 +1,35 @@
+# Adapter depth x prefix caching: energy per update vs error (periodic, period 4). 3 seeds (1-2 added 2026-10-12).
+out: results/depth
+datasets: [ettm1, electricity]
+seeds: [0, 1, 2]
+runs:
+- method: periodic
+  tag: depth_k0_raw
+  set: {method.period: 4, learner.adapt_blocks: 0, learner.cache_prefix: false}
+- method: periodic
+  tag: depth_k0_cache
+  set: {method.period: 4, learner.adapt_blocks: 0, learner.cache_prefix: true}
+- method: periodic
+  tag: depth_k1_raw
+  set: {method.period: 4, learner.adapt_blocks: 1, learner.cache_prefix: false}
+- method: periodic
+  tag: depth_k1_cache
+  set: {method.period: 4, learner.adapt_blocks: 1, learner.cache_prefix: true}
+- method: periodic
+  tag: depth_k2_raw
+  set: {method.period: 4, learner.adapt_blocks: 2, learner.cache_prefix: false}
+- method: periodic
+  tag: depth_k2_cache
+  set: {method.period: 4, learner.adapt_blocks: 2, learner.cache_prefix: true}
+- method: periodic
+  tag: depth_k4_raw
+  set: {method.period: 4, learner.adapt_blocks: 4, learner.cache_prefix: false}
+- method: periodic
+  tag: depth_k4_cache
+  set: {method.period: 4, learner.adapt_blocks: 4, learner.cache_prefix: true}
+- method: periodic
+  tag: depth_k8_raw
+  set: {method.period: 4, learner.adapt_blocks: 8, learner.cache_prefix: false}
+- method: periodic
+  tag: depth_k8_cache
+  set: {method.period: 4, learner.adapt_blocks: 8, learner.cache_prefix: true}

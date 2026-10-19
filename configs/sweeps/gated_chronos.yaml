@@ -1,0 +1,155 @@
+# gated evaluation grid for the chronos backbone, chosen on the dev streams (dev_chronos.yaml, results/dev_chronos):
+# per family, settings spanning 3-100 % of always-update energy on dev, near-identical neighbours dropped,
+# one setting near the bottom of each VoU family where dev had one. 3 seeds, analytic energy, on GPU.
+out: results/chronos
+backbone: chronos
+datasets:
+- synthetic
+- ettm1
+- electricity
+- solar
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: vou_gated
+  tag: vougerr_t0.05_l1
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l10
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l100
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l300
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l1000
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 1000
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l1
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l10
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l100
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l300
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l1000
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 1000
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l0.01
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l1
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l10
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l100
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l300
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l0.01
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l10
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l30
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 30
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l100
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l1000
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 1000
+    device: cuda

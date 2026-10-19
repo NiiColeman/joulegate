@@ -1,0 +1,98 @@
+# Dev sweep for shift-gated VoU (dev streams only, as in dev.yaml): input-gated (kappa x lam)
+# and error-gated (tau x lam); lam 3-30 added after the second dev sweep reached no 5-10 %
+# budgets. Residual VoU was dropped after its first dev sweep (see methods/vou_resid.py).
+# Compare against dev.yaml's periodic / drift / vou runs in results/dev.
+out: results/dev
+datasets: [synthetic_dev, ettm1_dev]
+seeds: [0]
+runs:
+- method: vou_gated
+  tag: vougin_k3_l0.01
+  set: {method.gate: input, method.kappa: 3, method.lam: 0.01}
+- method: vou_gated
+  tag: vougin_k3_l0.1
+  set: {method.gate: input, method.kappa: 3, method.lam: 0.1}
+- method: vou_gated
+  tag: vougin_k3_l1
+  set: {method.gate: input, method.kappa: 3, method.lam: 1}
+- method: vou_gated
+  tag: vougin_k5_l0.01
+  set: {method.gate: input, method.kappa: 5, method.lam: 0.01}
+- method: vou_gated
+  tag: vougin_k5_l0.1
+  set: {method.gate: input, method.kappa: 5, method.lam: 0.1}
+- method: vou_gated
+  tag: vougin_k5_l1
+  set: {method.gate: input, method.kappa: 5, method.lam: 1}
+- method: vou_gated
+  tag: vougin_k8_l0.01
+  set: {method.gate: input, method.kappa: 8, method.lam: 0.01}
+- method: vou_gated
+  tag: vougin_k8_l0.1
+  set: {method.gate: input, method.kappa: 8, method.lam: 0.1}
+- method: vou_gated
+  tag: vougin_k8_l1
+  set: {method.gate: input, method.kappa: 8, method.lam: 1}
+- method: vou_gated
+  tag: vougerr_t0.05_l0.01
+  set: {method.gate: error, method.tau: 0.05, method.lam: 0.01}
+- method: vou_gated
+  tag: vougerr_t0.05_l0.1
+  set: {method.gate: error, method.tau: 0.05, method.lam: 0.1}
+- method: vou_gated
+  tag: vougerr_t0.05_l1
+  set: {method.gate: error, method.tau: 0.05, method.lam: 1}
+- method: vou_gated
+  tag: vougerr_t0.2_l0.01
+  set: {method.gate: error, method.tau: 0.2, method.lam: 0.01}
+- method: vou_gated
+  tag: vougerr_t0.2_l0.1
+  set: {method.gate: error, method.tau: 0.2, method.lam: 0.1}
+- method: vou_gated
+  tag: vougerr_t0.2_l1
+  set: {method.gate: error, method.tau: 0.2, method.lam: 1}
+- method: vou_gated
+  tag: vougerr_t0.5_l0.01
+  set: {method.gate: error, method.tau: 0.5, method.lam: 0.01}
+- method: vou_gated
+  tag: vougerr_t0.5_l0.1
+  set: {method.gate: error, method.tau: 0.5, method.lam: 0.1}
+- method: vou_gated
+  tag: vougerr_t0.5_l1
+  set: {method.gate: error, method.tau: 0.5, method.lam: 1}
+- method: vou_gated
+  tag: vougin_k3_l3
+  set: {method.gate: input, method.kappa: 3, method.lam: 3}
+- method: vou_gated
+  tag: vougin_k3_l10
+  set: {method.gate: input, method.kappa: 3, method.lam: 10}
+- method: vou_gated
+  tag: vougin_k3_l30
+  set: {method.gate: input, method.kappa: 3, method.lam: 30}
+- method: vou_gated
+  tag: vougin_k5_l3
+  set: {method.gate: input, method.kappa: 5, method.lam: 3}
+- method: vou_gated
+  tag: vougin_k5_l10
+  set: {method.gate: input, method.kappa: 5, method.lam: 10}
+- method: vou_gated
+  tag: vougin_k5_l30
+  set: {method.gate: input, method.kappa: 5, method.lam: 30}
+- method: vou_gated
+  tag: vougerr_t0.05_l3
+  set: {method.gate: error, method.tau: 0.05, method.lam: 3}
+- method: vou_gated
+  tag: vougerr_t0.05_l10
+  set: {method.gate: error, method.tau: 0.05, method.lam: 10}
+- method: vou_gated
+  tag: vougerr_t0.05_l30
+  set: {method.gate: error, method.tau: 0.05, method.lam: 30}
+- method: vou_gated
+  tag: vougerr_t0.2_l3
+  set: {method.gate: error, method.tau: 0.2, method.lam: 3}
+- method: vou_gated
+  tag: vougerr_t0.2_l10
+  set: {method.gate: error, method.tau: 0.2, method.lam: 10}
+- method: vou_gated
+  tag: vougerr_t0.2_l30
+  set: {method.gate: error, method.tau: 0.2, method.lam: 30}

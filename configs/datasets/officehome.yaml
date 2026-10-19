@@ -1,0 +1,15 @@
+# Office-Home: base domain real_world (fine-tuned by pretrain_domains.py), then product -> art -> clipart,
+# every non-test image once in batches of 32. 30 % of each domain is a fixed test split.
+task: vision
+kind: domains
+root: data/officehome
+base: real_world
+domains: [product, art, clipart]
+batch: 32
+seed: 0
+mean: [0.5, 0.5, 0.5]
+std: [0.5, 0.5, 0.5]
+overrides:
+  model.num_classes: 65
+  checkpoint: checkpoints/vit_tiny_officehome.pt
+  retention: checkpoints/vit_tiny_retention_officehome.npz

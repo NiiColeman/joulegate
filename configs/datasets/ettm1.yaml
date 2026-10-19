@@ -1,0 +1,8 @@
+file: ETTm1.csv           # 15-min transformer load; held out (ETTm2 is in pretraining)
+channels: null
+season: 96
+stride: 24
+start: 20000
+n_steps: 800
+warmup: 2000
+freq_token: 5        # TTM-R2 frequency token: 15 min

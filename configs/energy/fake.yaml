@@ -1,0 +1,16 @@
+# Tests and dry runs only: fake counters, one quantized like NVML. Each adds busy_w watts per
+# second of CPU time used by the measured process, so work costs energy as on hardware.
+backend: sampled
+counters:
+  - {name: fake_fast, type: fake, power_w: 50.0, busy_w: 30.0, sample_s: 0.001}
+  - {name: fake_slow, type: fake, power_w: 60.0, busy_w: 30.0, quantum_j: 6.0, sample_s: 0.01}
+idle_s: 0.3
+warmup_steps: 16
+scale_window_s: 0.5
+scale_min_updates: 5
+scale_reference: analytic_45nm
+max_closure: 0.01
+max_idle_drift: 0.05
+require_exclusive: false
+max_seconds: 600
+pin: null

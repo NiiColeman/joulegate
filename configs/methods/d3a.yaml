@@ -1,0 +1,4 @@
+policy: d3a               # D3A's detector (arXiv 2403.14949) as the update trigger
+window: 16                # l_w: recent errors tested against all errors since the last update
+alpha: 1.96               # z threshold (one-sided)
+restart_period: null      # optional forced update every k steps (D3A's m_t); off in our grids

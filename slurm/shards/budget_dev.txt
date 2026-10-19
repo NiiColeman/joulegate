@@ -1,0 +1,7 @@
+configs/sweeps/budget_dev_patchmixer.yaml synthetic_dev
+configs/sweeps/budget_dev_patchmixer.yaml ettm1_dev
+configs/sweeps/budget_dev_ttm.yaml synthetic_dev
+configs/sweeps/budget_dev_ttm.yaml ettm1_dev
+configs/sweeps/budget_dev_chronos.yaml synthetic_dev
+configs/sweeps/budget_dev_chronos.yaml ettm1_dev
+configs/sweeps/budget_dev_core50.yaml core50_dev

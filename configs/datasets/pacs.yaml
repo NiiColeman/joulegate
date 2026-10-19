@@ -1,0 +1,15 @@
+# PACS: base domain photo (fine-tuned by pretrain_domains.py), then art_painting -> cartoon -> sketch,
+# every non-test image once in batches of 32. 30 % of each domain is a fixed test split.
+task: vision
+kind: domains
+root: data/pacs
+base: photo
+domains: [art_painting, cartoon, sketch]
+batch: 32
+seed: 0
+mean: [0.5, 0.5, 0.5]
+std: [0.5, 0.5, 0.5]
+overrides:
+  model.num_classes: 7
+  checkpoint: checkpoints/vit_tiny_pacs.pt
+  retention: checkpoints/vit_tiny_retention_pacs.npz

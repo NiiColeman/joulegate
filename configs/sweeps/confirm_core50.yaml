@@ -1,0 +1,82 @@
+# Held-out confirmation picks (E3). Rule, fixed before any seed 3-5 run and applied to dev results only: per family,
+# the setting with the lowest mean dev error among settings using at most 10 % of update-every-step
+# (periodic_p1) adaptation energy on every dev stream, else at most 25 %, else none. Plus frozen and periodic_p1.
+# Seeds 3-5, analytic energy; nothing is selected on these runs.
+# Backbone core50: dev streams core50_dev (results/dev).
+out: results/confirm_core50
+datasets:
+- core50
+seeds:
+- 3
+- 4
+- 5
+runs:
+- method: frozen
+  tag: frozen
+  set:
+    device: cuda
+- method: periodic
+  tag: periodic_p1
+  set:
+    method.period: 1
+    device: cuda
+- method: periodic
+  tag: periodic_p16
+  set:
+    method.period: 16
+    device: cuda
+- method: drift
+  tag: drift_t0.8
+  set:
+    method.tau: 0.8
+    device: cuda
+- method: vou
+  tag: vou_l5
+  set:
+    method.lam: 5
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l5
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 5
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l3
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 3
+    device: cuda
+- method: cara
+  tag: carat_l0.15
+  set:
+    method.variant: threshold
+    method.lam: 0.15
+    device: cuda
+- method: cara
+  tag: caract_l0.4
+  set:
+    method.variant: cumulative
+    method.lam: 0.4
+    device: cuda
+- method: upf
+  tag: upf_l0.085
+  set:
+    method.lam: 0.085
+    device: cuda
+- method: d3a
+  tag: d3a_w4_a1
+  set:
+    method.window: 4
+    method.alpha: 1
+    device: cuda
+- method: periodic
+  tag: replay_p16
+  set:
+    method.period: 16
+    learner.replay:
+      size: 256
+      frac: 0.5
+    device: cuda

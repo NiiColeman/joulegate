@@ -1,0 +1,5 @@
+policy: drift
+tau: 0.2                  # relative margin of short over long error EMA
+alpha_short: 0.5
+alpha_long: 0.05
+min_steps: 4

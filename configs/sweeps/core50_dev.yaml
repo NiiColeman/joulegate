@@ -1,0 +1,159 @@
+# Dev sweep on CORe50 (dev half of the target sessions, its own session order). Used only to choose
+# the evaluation grids so that each family spans about 5 to 100 % of always-update energy.
+# lam 2, 3, 5 added after the first dev pass: lam 1 -> 10 jumped from ~21-35 % to ~2 % energy,
+# leaving the 5-15 % budgets empty (the same sharp transition as on the time-series streams).
+out: results/dev
+datasets: [core50_dev]
+seeds: [0]
+runs:
+- {method: frozen, tag: frozen}
+- method: periodic
+  tag: periodic_p1
+  set: {method.period: 1}
+- method: periodic
+  tag: periodic_p2
+  set: {method.period: 2}
+- method: periodic
+  tag: periodic_p4
+  set: {method.period: 4}
+- method: periodic
+  tag: periodic_p8
+  set: {method.period: 8}
+- method: periodic
+  tag: periodic_p16
+  set: {method.period: 16}
+- method: periodic
+  tag: periodic_p32
+  set: {method.period: 32}
+- method: drift
+  tag: drift_t0.0
+  set: {method.tau: 0.0}
+- method: drift
+  tag: drift_t0.05
+  set: {method.tau: 0.05}
+- method: drift
+  tag: drift_t0.1
+  set: {method.tau: 0.1}
+- method: drift
+  tag: drift_t0.2
+  set: {method.tau: 0.2}
+- method: drift
+  tag: drift_t0.4
+  set: {method.tau: 0.4}
+- method: drift
+  tag: drift_t0.8
+  set: {method.tau: 0.8}
+- method: vou
+  tag: vou_l0.001
+  set: {method.lam: 0.001}
+- method: vou
+  tag: vou_l0.01
+  set: {method.lam: 0.01}
+- method: vou
+  tag: vou_l0.1
+  set: {method.lam: 0.1}
+- method: vou
+  tag: vou_l1
+  set: {method.lam: 1}
+- method: vou
+  tag: vou_l10
+  set: {method.lam: 10}
+- method: vou
+  tag: vou_l100
+  set: {method.lam: 100}
+- method: vou
+  tag: vou_l1000
+  set: {method.lam: 1000}
+- method: vou_gated
+  tag: vougerr_t0.05_l0.01
+  set: {method.gate: error, method.tau: 0.05, method.lam: 0.01}
+- method: vou_gated
+  tag: vougerr_t0.05_l1
+  set: {method.gate: error, method.tau: 0.05, method.lam: 1}
+- method: vou_gated
+  tag: vougerr_t0.05_l100
+  set: {method.gate: error, method.tau: 0.05, method.lam: 100}
+- method: vou_gated
+  tag: vougerr_t0.2_l0.01
+  set: {method.gate: error, method.tau: 0.2, method.lam: 0.01}
+- method: vou_gated
+  tag: vougerr_t0.2_l1
+  set: {method.gate: error, method.tau: 0.2, method.lam: 1}
+- method: vou_gated
+  tag: vougerr_t0.2_l100
+  set: {method.gate: error, method.tau: 0.2, method.lam: 100}
+- method: vou_gated
+  tag: vougin_k3_l0.01
+  set: {method.gate: input, method.kappa: 3, method.lam: 0.01}
+- method: vou_gated
+  tag: vougin_k3_l1
+  set: {method.gate: input, method.kappa: 3, method.lam: 1}
+- method: vou_gated
+  tag: vougin_k3_l100
+  set: {method.gate: input, method.kappa: 3, method.lam: 100}
+- method: vou_gated
+  tag: vougin_k5_l0.01
+  set: {method.gate: input, method.kappa: 5, method.lam: 0.01}
+- method: vou_gated
+  tag: vougin_k5_l1
+  set: {method.gate: input, method.kappa: 5, method.lam: 1}
+- method: vou_gated
+  tag: vougin_k5_l100
+  set: {method.gate: input, method.kappa: 5, method.lam: 100}
+- method: vou
+  tag: vou_l2
+  set: {method.lam: 2}
+- method: vou
+  tag: vou_l3
+  set: {method.lam: 3}
+- method: vou
+  tag: vou_l5
+  set: {method.lam: 5}
+- method: vou_gated
+  tag: vougerr_t0.05_l2
+  set: {method.gate: error, method.tau: 0.05, method.lam: 2}
+- method: vou_gated
+  tag: vougerr_t0.05_l3
+  set: {method.gate: error, method.tau: 0.05, method.lam: 3}
+- method: vou_gated
+  tag: vougerr_t0.05_l5
+  set: {method.gate: error, method.tau: 0.05, method.lam: 5}
+- method: vou_gated
+  tag: vougerr_t0.05_l10
+  set: {method.gate: error, method.tau: 0.05, method.lam: 10}
+- method: vou_gated
+  tag: vougerr_t0.2_l2
+  set: {method.gate: error, method.tau: 0.2, method.lam: 2}
+- method: vou_gated
+  tag: vougerr_t0.2_l3
+  set: {method.gate: error, method.tau: 0.2, method.lam: 3}
+- method: vou_gated
+  tag: vougerr_t0.2_l5
+  set: {method.gate: error, method.tau: 0.2, method.lam: 5}
+- method: vou_gated
+  tag: vougerr_t0.2_l10
+  set: {method.gate: error, method.tau: 0.2, method.lam: 10}
+- method: vou_gated
+  tag: vougin_k3_l2
+  set: {method.gate: input, method.kappa: 3, method.lam: 2}
+- method: vou_gated
+  tag: vougin_k3_l3
+  set: {method.gate: input, method.kappa: 3, method.lam: 3}
+- method: vou_gated
+  tag: vougin_k3_l5
+  set: {method.gate: input, method.kappa: 3, method.lam: 5}
+- method: vou_gated
+  tag: vougin_k3_l10
+  set: {method.gate: input, method.kappa: 3, method.lam: 10}
+- method: vou_gated
+  tag: vougin_k5_l2
+  set: {method.gate: input, method.kappa: 5, method.lam: 2}
+- method: vou_gated
+  tag: vougin_k5_l3
+  set: {method.gate: input, method.kappa: 5, method.lam: 3}
+- method: vou_gated
+  tag: vougin_k5_l5
+  set: {method.gate: input, method.kappa: 5, method.lam: 5}
+- method: vou_gated
+  tag: vougin_k5_l10
+  set: {method.gate: input, method.kappa: 5, method.lam: 10}

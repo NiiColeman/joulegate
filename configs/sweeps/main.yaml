@@ -1,0 +1,94 @@
+# Main error-energy frontier sweep, aggressive learner (base.yaml), held-out streams.
+# vou_l0.5-0.8 were added after the first pass revealed a sharp transition between lam 0.3 and 1.
+out: results/main
+datasets: [synthetic, ettm1, electricity, solar]
+seeds: [0, 1, 2]
+runs:
+- {method: frozen, tag: frozen}
+- method: periodic
+  tag: periodic_p1
+  set: {method.period: 1}
+- method: periodic
+  tag: periodic_p2
+  set: {method.period: 2}
+- method: periodic
+  tag: periodic_p4
+  set: {method.period: 4}
+- method: periodic
+  tag: periodic_p8
+  set: {method.period: 8}
+- method: periodic
+  tag: periodic_p16
+  set: {method.period: 16}
+- method: periodic
+  tag: periodic_p32
+  set: {method.period: 32}
+- method: drift
+  tag: drift_t0.0
+  set: {method.tau: 0.0}
+- method: drift
+  tag: drift_t0.05
+  set: {method.tau: 0.05}
+- method: drift
+  tag: drift_t0.1
+  set: {method.tau: 0.1}
+- method: drift
+  tag: drift_t0.2
+  set: {method.tau: 0.2}
+- method: drift
+  tag: drift_t0.4
+  set: {method.tau: 0.4}
+- method: drift
+  tag: drift_t0.8
+  set: {method.tau: 0.8}
+- method: vou
+  tag: vou_l0.003
+  set: {method.lam: 0.003}
+- method: vou
+  tag: vou_l0.01
+  set: {method.lam: 0.01}
+- method: vou
+  tag: vou_l0.03
+  set: {method.lam: 0.03}
+- method: vou
+  tag: vou_l0.1
+  set: {method.lam: 0.1}
+- method: vou
+  tag: vou_l0.3
+  set: {method.lam: 0.3}
+- method: vou
+  tag: vou_l1
+  set: {method.lam: 1}
+- method: vou
+  tag: vou_l3
+  set: {method.lam: 3}
+- method: vou
+  tag: vou_l10
+  set: {method.lam: 10}
+- method: vou_err
+  tag: vouerr_l2
+  set: {method.lam: 2}
+- method: vou_err
+  tag: vouerr_l8
+  set: {method.lam: 8}
+- method: vou_err
+  tag: vouerr_l32
+  set: {method.lam: 32}
+- method: oracle
+  tag: oracle_g0.0
+  set: {method.min_gain: 0.0}
+- method: oracle
+  tag: oracle_g0.02
+  set: {method.min_gain: 0.02}
+- method: vou
+  tag: vou_l0.5
+  set: {method.lam: 0.5}
+- method: vou
+  tag: vou_l0.6
+  set: {method.lam: 0.6}
+- method: vou
+  tag: vou_l0.7
+  set: {method.lam: 0.7}
+- method: vou
+  tag: vou_l0.8
+  set: {method.lam: 0.8}

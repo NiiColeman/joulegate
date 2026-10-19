@@ -1,0 +1,15 @@
+# Measured per-call costs for the ttm backbone: frozen runs (inference, probe and trial-update windows are measured
+# in warm-up), the 4 evaluation streams, 1 seed.
+out: results/measured_percall_ttm
+backbone: ttm
+datasets:
+- synthetic
+- ettm1
+- electricity
+- solar
+seeds:
+- 0
+runs:
+- method: frozen
+  tag: frozen
+

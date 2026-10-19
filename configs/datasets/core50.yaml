@@ -1,0 +1,11 @@
+# CORe50 evaluation stream: the 9 target sessions (never seen in fine-tuning), second half of every
+# object-session video's kept frames. Fine-tuning used sessions 1 and 2.
+task: vision
+root: data/core50
+sessions: [7, 4, 10, 3, 9, 5, 11, 6, 8]
+half: second
+n_steps: 800
+batch: 32
+seed: 0
+mean: [0.5, 0.5, 0.5]
+std: [0.5, 0.5, 0.5]

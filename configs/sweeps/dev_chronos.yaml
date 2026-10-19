@@ -1,0 +1,453 @@
+# Dev sweep for the chronos backbone (dev streams only; grids for main_chronos / gated_chronos are chosen here):
+# dev.yaml + dev_cheap.yaml runs, plus lam 0.001 / 10000 (VoU) and 100 / 1000 (gated), since lam is a
+# price in this backbone's analytic joules and its useful range is not known in advance. On GPU.
+# Second pass (after the first dev results left gaps between lam settings): VoU lam [30, 300, 3000], gated lam [300, 3000].
+out: results/dev_chronos
+backbone: chronos
+datasets:
+- synthetic_dev
+- ettm1_dev
+seeds:
+- 0
+runs:
+- method: frozen
+  tag: frozen
+  set:
+    device: cuda
+- method: periodic
+  tag: periodic_p1
+  set:
+    method.period: 1
+    device: cuda
+- method: periodic
+  tag: periodic_p2
+  set:
+    method.period: 2
+    device: cuda
+- method: periodic
+  tag: periodic_p4
+  set:
+    method.period: 4
+    device: cuda
+- method: periodic
+  tag: periodic_p8
+  set:
+    method.period: 8
+    device: cuda
+- method: periodic
+  tag: periodic_p16
+  set:
+    method.period: 16
+    device: cuda
+- method: drift
+  tag: drift_t0.0
+  set:
+    method.tau: 0.0
+    device: cuda
+- method: drift
+  tag: drift_t0.05
+  set:
+    method.tau: 0.05
+    device: cuda
+- method: drift
+  tag: drift_t0.2
+  set:
+    method.tau: 0.2
+    device: cuda
+- method: drift
+  tag: drift_t0.8
+  set:
+    method.tau: 0.8
+    device: cuda
+- method: vou
+  tag: vou_l0.01
+  set:
+    method.lam: 0.01
+    device: cuda
+- method: vou
+  tag: vou_l0.1
+  set:
+    method.lam: 0.1
+    device: cuda
+- method: vou
+  tag: vou_l1
+  set:
+    method.lam: 1
+    device: cuda
+- method: vou
+  tag: vou_l10
+  set:
+    method.lam: 10
+    device: cuda
+- method: vou
+  tag: vou_l100
+  set:
+    method.lam: 100
+    device: cuda
+- method: vou
+  tag: vou_l1000
+  set:
+    method.lam: 1000
+    device: cuda
+- method: vou_err
+  tag: vouerr_l2
+  set:
+    method.lam: 2
+    device: cuda
+- method: vou_err
+  tag: vouerr_l8
+  set:
+    method.lam: 8
+    device: cuda
+- method: vou_err
+  tag: vouerr_l32
+  set:
+    method.lam: 32
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l0.01
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l0.1
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l1
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l0.01
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l0.1
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l1
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k8_l0.01
+  set:
+    method.gate: input
+    method.kappa: 8
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougin_k8_l0.1
+  set:
+    method.gate: input
+    method.kappa: 8
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k8_l1
+  set:
+    method.gate: input
+    method.kappa: 8
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l0.01
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l0.1
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l1
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l0.01
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l0.1
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l1
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.5_l0.01
+  set:
+    method.gate: error
+    method.tau: 0.5
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.5_l0.1
+  set:
+    method.gate: error
+    method.tau: 0.5
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.5_l1
+  set:
+    method.gate: error
+    method.tau: 0.5
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l3
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 3
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l10
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l30
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 30
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l3
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 3
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l10
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l30
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 30
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l3
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 3
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l10
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l30
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 30
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l3
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 3
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l10
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 10
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l30
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 30
+    device: cuda
+- method: vou
+  tag: vou_l0.001
+  set:
+    method.lam: 0.001
+    device: cuda
+- method: vou
+  tag: vou_l10000
+  set:
+    method.lam: 10000
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l100
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l1000
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 1000
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l100
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l1000
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 1000
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l100
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l1000
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 1000
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l100
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 100
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l1000
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 1000
+    device: cuda
+- method: vou
+  tag: vou_l30
+  set:
+    method.lam: 30
+    device: cuda
+- method: vou
+  tag: vou_l300
+  set:
+    method.lam: 300
+    device: cuda
+- method: vou
+  tag: vou_l3000
+  set:
+    method.lam: 3000
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l300
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l300
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l300
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l300
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l3000
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 3000
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l3000
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 3000
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l3000
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 3000
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l3000
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 3000
+    device: cuda

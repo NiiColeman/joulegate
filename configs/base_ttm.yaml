@@ -1,0 +1,15 @@
+# Base config for Granite TTM-R2 (0.8M params, ibm-granite/granite-timeseries-ttm-r2, revision 512-48-ft-r2.1),
+# merged over base.yaml by build(..., backbone="ttm"). dataset_overrides apply after the dataset group is merged:
+# stride = horizon so no target overlaps the next step's target; longer synthetic series and an earlier
+# electricity start so the streams fit at stride 48.
+backbone: ttm
+checkpoint: null
+retention_windows: checkpoints/retention_windows_512_48.npy
+model: {name: ttm_r2, repo: ibm-granite/granite-timeseries-ttm-r2, revision: 512-48-ft-r2.1, context: 512, horizon: 48}
+learner:
+  adapt_blocks: 2
+  lora_targets: [patch_mixer.mlp.fc1, patch_mixer.mlp.fc2, feature_mixer.mlp.fc1, feature_mixer.mlp.fc2]
+dataset_overrides:
+  all: {stride: 48}
+  synthetic: {synthetic.length: 42000}
+  electricity: {start: 2000}

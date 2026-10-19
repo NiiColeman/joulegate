@@ -1,0 +1,13 @@
+configs/sweeps/budget_patchmixer.yaml synthetic
+configs/sweeps/budget_patchmixer.yaml ettm1
+configs/sweeps/budget_patchmixer.yaml electricity
+configs/sweeps/budget_patchmixer.yaml solar
+configs/sweeps/budget_ttm.yaml synthetic
+configs/sweeps/budget_ttm.yaml ettm1
+configs/sweeps/budget_ttm.yaml electricity
+configs/sweeps/budget_ttm.yaml solar
+configs/sweeps/budget_chronos.yaml synthetic
+configs/sweeps/budget_chronos.yaml ettm1
+configs/sweeps/budget_chronos.yaml electricity
+configs/sweeps/budget_chronos.yaml solar
+configs/sweeps/budget_core50.yaml core50

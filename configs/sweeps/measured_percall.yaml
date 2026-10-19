@@ -1,0 +1,7 @@
+# Exact joules per forecast, gradient probe and update (engine/measured.py warm-up windows),
+# from one frozen run per stream. Used on GPU, where per-window attribution is smeared.
+out: results/measured_percall
+datasets: [synthetic, ettm1, electricity, solar]
+seeds: [0]
+runs:
+- {method: frozen, tag: frozen}

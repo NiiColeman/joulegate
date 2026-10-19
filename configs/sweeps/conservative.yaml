@@ -1,0 +1,44 @@
+# Conservative learner (lr 3e-4, 2 steps), reduced grid, 3 seeds (1-2 added 2026-10-12).
+out: results/conservative
+datasets: [synthetic, ettm1, electricity, solar]
+seeds: [0, 1, 2]
+runs:
+- method: frozen
+  tag: frozen
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2}
+- method: periodic
+  tag: periodic_p1
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.period: 1}
+- method: periodic
+  tag: periodic_p2
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.period: 2}
+- method: periodic
+  tag: periodic_p4
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.period: 4}
+- method: periodic
+  tag: periodic_p16
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.period: 16}
+- method: drift
+  tag: drift_t0.0
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.tau: 0.0}
+- method: drift
+  tag: drift_t0.2
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.tau: 0.2}
+- method: drift
+  tag: drift_t0.8
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.tau: 0.8}
+- method: vou
+  tag: vou_l0.01
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.lam: 0.01}
+- method: vou
+  tag: vou_l0.1
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.lam: 0.1}
+- method: vou
+  tag: vou_l1
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.lam: 1}
+- method: vou
+  tag: vou_l10
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.lam: 10}
+- method: oracle
+  tag: oracle_g0.0
+  set: {learner.lr: 0.0003, learner.steps_per_update: 2, method.min_gain: 0.0}

@@ -1,0 +1,71 @@
+# Direct CPU measurement of shift-gated VoU (configs/sweeps/gated.yaml grid), 1 seed, as a
+# cross-check of the projected energies. frozen and periodic_p1 give each stream's references.
+# Run with --energy measured_cpu --out results/measured_gated/cpu.
+out: results/measured_gated
+datasets: [synthetic, ettm1, electricity, solar]
+seeds: [0]
+runs:
+- {method: frozen, tag: frozen}
+- method: periodic
+  tag: periodic_p1
+  set: {method.period: 1}
+- method: vou_gated
+  tag: vougerr_t0.05_l0.1
+  set: {method.gate: error, method.tau: 0.05, method.lam: 0.1}
+- method: vou_gated
+  tag: vougerr_t0.05_l1
+  set: {method.gate: error, method.tau: 0.05, method.lam: 1}
+- method: vou_gated
+  tag: vougerr_t0.05_l3
+  set: {method.gate: error, method.tau: 0.05, method.lam: 3}
+- method: vou_gated
+  tag: vougerr_t0.05_l10
+  set: {method.gate: error, method.tau: 0.05, method.lam: 10}
+- method: vou_gated
+  tag: vougerr_t0.05_l30
+  set: {method.gate: error, method.tau: 0.05, method.lam: 30}
+- method: vou_gated
+  tag: vougerr_t0.2_l0.1
+  set: {method.gate: error, method.tau: 0.2, method.lam: 0.1}
+- method: vou_gated
+  tag: vougerr_t0.2_l1
+  set: {method.gate: error, method.tau: 0.2, method.lam: 1}
+- method: vou_gated
+  tag: vougerr_t0.2_l3
+  set: {method.gate: error, method.tau: 0.2, method.lam: 3}
+- method: vou_gated
+  tag: vougerr_t0.2_l10
+  set: {method.gate: error, method.tau: 0.2, method.lam: 10}
+- method: vou_gated
+  tag: vougerr_t0.2_l30
+  set: {method.gate: error, method.tau: 0.2, method.lam: 30}
+- method: vou_gated
+  tag: vougin_k3_l0.1
+  set: {method.gate: input, method.kappa: 3, method.lam: 0.1}
+- method: vou_gated
+  tag: vougin_k3_l1
+  set: {method.gate: input, method.kappa: 3, method.lam: 1}
+- method: vou_gated
+  tag: vougin_k3_l3
+  set: {method.gate: input, method.kappa: 3, method.lam: 3}
+- method: vou_gated
+  tag: vougin_k3_l10
+  set: {method.gate: input, method.kappa: 3, method.lam: 10}
+- method: vou_gated
+  tag: vougin_k3_l30
+  set: {method.gate: input, method.kappa: 3, method.lam: 30}
+- method: vou_gated
+  tag: vougin_k5_l0.1
+  set: {method.gate: input, method.kappa: 5, method.lam: 0.1}
+- method: vou_gated
+  tag: vougin_k5_l1
+  set: {method.gate: input, method.kappa: 5, method.lam: 1}
+- method: vou_gated
+  tag: vougin_k5_l3
+  set: {method.gate: input, method.kappa: 5, method.lam: 3}
+- method: vou_gated
+  tag: vougin_k5_l10
+  set: {method.gate: input, method.kappa: 5, method.lam: 10}
+- method: vou_gated
+  tag: vougin_k5_l30
+  set: {method.gate: input, method.kappa: 5, method.lam: 30}

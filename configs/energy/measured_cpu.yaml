@@ -1,0 +1,16 @@
+# Measured energy, model on CPU: RAPL package and DRAM of socket 0 (Leonardo Booster
+# nodes have one socket). RAPL covers the whole socket, so runs need an exclusive node.
+backend: sampled
+counters:
+  - {name: cpu_pkg, type: rapl, path: /sys/class/powercap/intel-rapl:0, sample_s: 0.0005}
+  - {name: cpu_dram, type: rapl, path: /sys/class/powercap/intel-rapl:0:0, sample_s: 0.0005}
+idle_s: 30                # idle window before and after the stream
+warmup_steps: 16          # forecasts in the warm-up (at least the buffer size)
+scale_window_s: 2.0       # back-to-back trial updates in one window this long set the price scale
+scale_min_updates: 5      # ... and at least this many of them
+scale_reference: analytic_45nm  # energy config the price scale is relative to
+max_closure: 0.01         # fail the run above this relative closure error
+max_idle_drift: 0.05      # flag the run above this relative idle-power change
+require_exclusive: true   # fail unless the job holds every CPU of the node
+max_seconds: 3600         # sampler capacity
+pin: {main: 2, sampler: 3}

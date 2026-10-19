@@ -1,0 +1,107 @@
+# Evaluation grid for carat, caract, upf, d3a, chosen on results/dev_chronos (synthetic_dev ettm1_dev)
+# by pick_grid.py: 3-100 % of always-update energy on some dev stream, near-identical
+# neighbours (update counts within 10 % on every dev stream) dropped. Analytic energy.
+out: results/baselines_chronos
+backbone: chronos
+datasets:
+- synthetic
+- ettm1
+- electricity
+- solar
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: cara
+  tag: carat_l100
+  set:
+    method.variant: threshold
+    method.lam: 100
+    device: cuda
+- method: cara
+  tag: carat_l10
+  set:
+    method.variant: threshold
+    method.lam: 10
+    device: cuda
+- method: cara
+  tag: carat_l1
+  set:
+    method.variant: threshold
+    method.lam: 1
+    device: cuda
+- method: cara
+  tag: carat_l0.1
+  set:
+    method.variant: threshold
+    method.lam: 0.1
+    device: cuda
+- method: cara
+  tag: carat_l0.01
+  set:
+    method.variant: threshold
+    method.lam: 0.01
+    device: cuda
+- method: cara
+  tag: carat_l0.0001
+  set:
+    method.variant: threshold
+    method.lam: 0.0001
+    device: cuda
+- method: cara
+  tag: carat_l0.001
+  set:
+    method.variant: threshold
+    method.lam: 0.001
+    device: cuda
+- method: cara
+  tag: caract_l100
+  set:
+    method.variant: cumulative
+    method.lam: 100
+    device: cuda
+- method: cara
+  tag: caract_l10
+  set:
+    method.variant: cumulative
+    method.lam: 10
+    device: cuda
+- method: upf
+  tag: upf_l1
+  set:
+    method.lam: 1
+    device: cuda
+- method: upf
+  tag: upf_l10
+  set:
+    method.lam: 10
+    device: cuda
+- method: d3a
+  tag: d3a_w4_a1
+  set:
+    method.window: 4
+    method.alpha: 1
+    device: cuda
+- method: d3a
+  tag: d3a_w4_a1.96
+  set:
+    method.window: 4
+    method.alpha: 1.96
+    device: cuda
+- method: d3a
+  tag: d3a_w4_a3
+  set:
+    method.window: 4
+    method.alpha: 3
+    device: cuda
+- method: upf
+  tag: upf_l20
+  set:
+    method.lam: 20
+    device: cuda
+- method: upf
+  tag: upf_l50
+  set:
+    method.lam: 50
+    device: cuda

@@ -1,0 +1,4 @@
+configs/sweeps/pacs_baselines.yaml pacs
+configs/sweeps/officehome_baselines.yaml officehome
+configs/sweeps/core50_domains_baselines.yaml core50
+configs/sweeps/core50_b3_domains_baselines.yaml core50_b3

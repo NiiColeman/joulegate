@@ -1,0 +1,6 @@
+# Exact per-call joules (forecast, probe, update) on CORe50 from one frozen run's warm-up windows.
+out: results/measured_vision_percall
+datasets: [core50]
+seeds: [0]
+runs:
+- {method: frozen, tag: frozen}

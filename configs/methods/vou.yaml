@@ -1,0 +1,4 @@
+policy: vou               # gradient-alignment value of update (proposed)
+lam: 1.0                  # price of energy: predicted normalised-MSE reduction required per joule
+horizon: 10               # steps a first-order improvement is assumed to persist
+min_steps: 4

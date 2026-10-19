@@ -1,0 +1,55 @@
+# Controlled update granularity (E2): 200x1, 100x2, 50x4, 25x8 = events x gradient steps, all 200 steps
+# on 800-step streams. Fixed lr and Adam; buffer 32 so every window gets 8 gradient-step exposures in
+# every grouping (32/p updates of k = p/4 steps). Frozen and update-every-step (p1/k1) controls.
+# Measured subset (lr 2e-3), run with slurm/measure.sbatch <dataset> <cpu|gpu> this file results/gran_measured.
+out: results/gran_measured
+datasets:
+- synthetic
+- ettm1
+- electricity
+- solar
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: frozen
+  tag: frozen_lr0.002
+  set:
+    learner.lr: 0.002
+    learner.buffer_steps: 32
+- method: periodic
+  tag: always_lr0.002
+  set:
+    learner.lr: 0.002
+    learner.buffer_steps: 32
+    method.period: 1
+    learner.steps_per_update: 1
+- method: periodic
+  tag: gran_lr0.002_p4_k1
+  set:
+    learner.lr: 0.002
+    learner.buffer_steps: 32
+    method.period: 4
+    learner.steps_per_update: 1
+- method: periodic
+  tag: gran_lr0.002_p8_k2
+  set:
+    learner.lr: 0.002
+    learner.buffer_steps: 32
+    method.period: 8
+    learner.steps_per_update: 2
+- method: periodic
+  tag: gran_lr0.002_p16_k4
+  set:
+    learner.lr: 0.002
+    learner.buffer_steps: 32
+    method.period: 16
+    learner.steps_per_update: 4
+- method: periodic
+  tag: gran_lr0.002_p32_k8
+  set:
+    learner.lr: 0.002
+    learner.buffer_steps: 32
+    method.period: 32
+    learner.steps_per_update: 8

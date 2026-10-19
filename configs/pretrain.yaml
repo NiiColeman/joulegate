@@ -1,0 +1,14 @@
+# Backbone pretraining corpus. Disjoint from every online stream.
+sources:
+  - {file: ETTh1.csv}
+  - {file: ETTh2.csv}
+  - {file: ETTm2.csv}
+  - {file: traffic.txt, channels: 24}
+  - {file: exchange_rate.txt}
+train_frac: 0.7
+val_frac: 0.2
+steps: 5000
+batch: 256
+lr: 0.001
+retention_windows: 2000
+seed: 0

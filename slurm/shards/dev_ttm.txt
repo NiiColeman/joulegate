@@ -1,0 +1,2 @@
+configs/sweeps/dev_ttm.yaml synthetic_dev
+configs/sweeps/dev_ttm.yaml ettm1_dev

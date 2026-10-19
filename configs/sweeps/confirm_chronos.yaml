@@ -1,0 +1,78 @@
+# Held-out confirmation picks (E3). Rule, fixed before any seed 3-5 run and applied to dev results only: per family,
+# the setting with the lowest mean dev error among settings using at most 10 % of update-every-step
+# (periodic_p1) adaptation energy on every dev stream, else at most 25 %, else none. Plus frozen and periodic_p1.
+# Seeds 3-5, analytic energy; nothing is selected on these runs.
+# Backbone chronos: dev streams synthetic_dev, ettm1_dev (results/dev_chronos).
+out: results/confirm_chronos
+backbone: chronos
+datasets:
+- synthetic
+- ettm1
+- electricity
+- solar
+seeds:
+- 3
+- 4
+- 5
+runs:
+- method: frozen
+  tag: frozen
+  set:
+    device: cuda
+- method: periodic
+  tag: periodic_p1
+  set:
+    method.period: 1
+    device: cuda
+- method: periodic
+  tag: periodic_p16
+  set:
+    method.period: 16
+    device: cuda
+- method: drift
+  tag: drift_t0.8
+  set:
+    method.tau: 0.8
+    device: cuda
+- method: vou
+  tag: vou_l300
+  set:
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l300
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 300
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l300
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 300
+    device: cuda
+- method: cara
+  tag: carat_l1000
+  set:
+    method.variant: threshold
+    method.lam: 1000
+    device: cuda
+- method: cara
+  tag: caract_l1000
+  set:
+    method.variant: cumulative
+    method.lam: 1000
+    device: cuda
+- method: upf
+  tag: upf_l50
+  set:
+    method.lam: 50
+    device: cuda
+- method: d3a
+  tag: d3a_w16_a5
+  set:
+    method.window: 16
+    method.alpha: 5
+    device: cuda

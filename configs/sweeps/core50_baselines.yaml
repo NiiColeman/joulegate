@@ -1,0 +1,137 @@
+# Evaluation grid for carat, caract, upf, d3a, chosen on results/dev (core50_dev)
+# by pick_grid.py: 3-100 % of always-update energy on some dev stream, near-identical
+# neighbours (update counts within 10 % on every dev stream) dropped. Analytic energy.
+# UPF has no CORe50 dev setting between 1.5 % and 27.5 % of always-update energy, because its energy jumps between lam 0.05 and 0.07.
+# replay_p*: the CORe50 periodic grid with half of each update drawn from a 256-batch
+# reservoir memory (naive replay, Prabhu et al. 2023); size and frac fixed, not tuned.
+out: results/baselines
+datasets:
+- core50
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: cara
+  tag: carat_l0.2
+  set:
+    method.variant: threshold
+    method.lam: 0.2
+- method: cara
+  tag: carat_l0.15
+  set:
+    method.variant: threshold
+    method.lam: 0.15
+- method: cara
+  tag: carat_l0.1
+  set:
+    method.variant: threshold
+    method.lam: 0.1
+- method: cara
+  tag: carat_l0.01
+  set:
+    method.variant: threshold
+    method.lam: 0.01
+- method: cara
+  tag: carat_l0.001
+  set:
+    method.variant: threshold
+    method.lam: 0.001
+- method: cara
+  tag: caract_l0.4
+  set:
+    method.variant: cumulative
+    method.lam: 0.4
+- method: cara
+  tag: caract_l0.3
+  set:
+    method.variant: cumulative
+    method.lam: 0.3
+- method: cara
+  tag: caract_l0.2
+  set:
+    method.variant: cumulative
+    method.lam: 0.2
+- method: cara
+  tag: caract_l0.1
+  set:
+    method.variant: cumulative
+    method.lam: 0.1
+- method: cara
+  tag: caract_l0.01
+  set:
+    method.variant: cumulative
+    method.lam: 0.01
+- method: upf
+  tag: upf_l0.001
+  set:
+    method.lam: 0.001
+- method: upf
+  tag: upf_l0.01
+  set:
+    method.lam: 0.01
+- method: d3a
+  tag: d3a_w4_a1
+  set:
+    method.window: 4
+    method.alpha: 1
+- method: d3a
+  tag: d3a_w4_a1.96
+  set:
+    method.window: 4
+    method.alpha: 1.96
+- method: d3a
+  tag: d3a_w4_a3
+  set:
+    method.window: 4
+    method.alpha: 3
+- method: upf
+  tag: upf_l0.02
+  set:
+    method.lam: 0.02
+- method: upf
+  tag: upf_l0.05
+  set:
+    method.lam: 0.05
+- method: periodic
+  tag: replay_p1
+  set:
+    method.period: 1
+    learner.replay:
+      size: 256
+      frac: 0.5
+- method: periodic
+  tag: replay_p2
+  set:
+    method.period: 2
+    learner.replay:
+      size: 256
+      frac: 0.5
+- method: periodic
+  tag: replay_p4
+  set:
+    method.period: 4
+    learner.replay:
+      size: 256
+      frac: 0.5
+- method: periodic
+  tag: replay_p8
+  set:
+    method.period: 8
+    learner.replay:
+      size: 256
+      frac: 0.5
+- method: periodic
+  tag: replay_p16
+  set:
+    method.period: 16
+    learner.replay:
+      size: 256
+      frac: 0.5
+- method: periodic
+  tag: replay_p32
+  set:
+    method.period: 32
+    learner.replay:
+      size: 256
+      frac: 0.5

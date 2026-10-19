@@ -1,0 +1,10 @@
+configs/sweeps/granularity.yaml synthetic
+configs/sweeps/granularity.yaml ettm1
+configs/sweeps/granularity.yaml electricity
+configs/sweeps/granularity.yaml solar
+configs/sweeps/conservative.yaml synthetic
+configs/sweeps/conservative.yaml ettm1
+configs/sweeps/conservative.yaml electricity
+configs/sweeps/conservative.yaml solar
+configs/sweeps/depth.yaml ettm1
+configs/sweeps/depth.yaml electricity

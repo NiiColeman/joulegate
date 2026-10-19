@@ -1,0 +1,9 @@
+file: solar_AL.txt        # 10-min PV output, Alabama; 8 fixed random plants
+channels: 8
+channel_seed: 0
+season: 144
+stride: 24
+start: 4000
+n_steps: 800
+warmup: 2000
+freq_token: 4        # TTM-R2 frequency token: 10 min

@@ -1,0 +1,12 @@
+policy: vou_gated         # VoU that probes only for arm_steps after a detected shift
+gate: input               # input (window mean / log spread z-score) | error (drift rule)
+kappa: 4.0                # input gate: z-score threshold
+alpha_in: 0.05            # input gate: EW mean/variance rate; 1/alpha_in warm-up steps
+tau: 0.2                  # error gate: short error EMA above (1 + tau) x long
+alpha_short: 0.5
+alpha_long: 0.05
+arm_steps: 16             # probing window after a shift
+cooldown: 16              # steps after a window or update before the gate can re-arm
+lam: 1.0                  # VoU's price of energy (same scale as vou)
+horizon: 10
+min_steps: 4

@@ -1,0 +1,4 @@
+policy: vou_resid         # forecast-error agreement instead of gradient probes (no probe cost)
+lam: 1.0                  # price of energy; not on VoU's scale (U is per-element squared bias)
+horizon: 10
+min_steps: 4

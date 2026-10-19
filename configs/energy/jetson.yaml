@@ -1,0 +1,15 @@
+# Jetson power rail (implemented, not run in round 1). The path differs per module and
+# JetPack version; find it with `jtop` or `find /sys -name '*power*input*'`.
+backend: sampled
+counters:
+  - {name: board, type: sysfs, path: /sys/bus/i2c/drivers/ina3221x/0-0040/iio:device0/in_power0_input, unit_w: 0.001, sample_s: 0.005}
+idle_s: 30
+warmup_steps: 16          # forecasts in the warm-up (at least the buffer size)
+scale_window_s: 2.0       # back-to-back trial updates in one window this long set the price scale
+scale_min_updates: 5      # ... and at least this many of them
+scale_reference: analytic_45nm  # energy config the price scale is relative to
+max_closure: 0.01
+max_idle_drift: 0.05
+require_exclusive: false
+max_seconds: 3600
+pin: null

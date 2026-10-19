@@ -1,0 +1,13 @@
+configs/sweeps/baselines.yaml synthetic
+configs/sweeps/baselines.yaml ettm1
+configs/sweeps/baselines.yaml electricity
+configs/sweeps/baselines.yaml solar
+configs/sweeps/baselines_ttm.yaml synthetic
+configs/sweeps/baselines_ttm.yaml ettm1
+configs/sweeps/baselines_ttm.yaml electricity
+configs/sweeps/baselines_ttm.yaml solar
+configs/sweeps/baselines_chronos.yaml synthetic
+configs/sweeps/baselines_chronos.yaml ettm1
+configs/sweeps/baselines_chronos.yaml electricity
+configs/sweeps/baselines_chronos.yaml solar
+configs/sweeps/core50_baselines.yaml core50

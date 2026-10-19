@@ -1,0 +1,8 @@
+configs/sweeps/main_chronos.yaml synthetic
+configs/sweeps/main_chronos.yaml ettm1
+configs/sweeps/main_chronos.yaml electricity
+configs/sweeps/main_chronos.yaml solar
+configs/sweeps/gated_chronos.yaml synthetic
+configs/sweeps/gated_chronos.yaml ettm1
+configs/sweeps/gated_chronos.yaml electricity
+configs/sweeps/gated_chronos.yaml solar

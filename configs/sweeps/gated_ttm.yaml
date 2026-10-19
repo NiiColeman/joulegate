@@ -1,0 +1,120 @@
+# gated evaluation grid for the ttm backbone, chosen on the dev streams (dev_ttm.yaml, results/dev_ttm):
+# per family, settings spanning 3-100 % of always-update energy on dev, near-identical neighbours dropped,
+# one setting near the bottom of each VoU family where dev had one. 3 seeds, analytic energy, on GPU.
+out: results/ttm
+backbone: ttm
+datasets:
+- synthetic
+- ettm1
+- electricity
+- solar
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: vou_gated
+  tag: vougerr_t0.05_l0.01
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l0.1
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l1
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l3
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 3
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l5
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 5
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l0.01
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l0.1
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l1
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 1
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.2_l5
+  set:
+    method.gate: error
+    method.tau: 0.2
+    method.lam: 5
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l0.01
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 0.01
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l0.1
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l3
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 3
+    device: cuda
+- method: vou_gated
+  tag: vougin_k3_l5
+  set:
+    method.gate: input
+    method.kappa: 3
+    method.lam: 5
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l0.1
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 0.1
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l3
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 3
+    device: cuda

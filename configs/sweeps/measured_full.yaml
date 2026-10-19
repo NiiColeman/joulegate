@@ -1,0 +1,80 @@
+# Measured energy, round 2: the main frontier grid on CPU, 3 seeds (configs/sweeps/main.yaml
+# without the oracle, whose preview updates would be charged as decisions, and vou_err, which
+# prices updates in raw joules). Run with --energy measured_cpu --out results/measured_full/cpu.
+out: results/measured_full
+datasets: [synthetic, ettm1, electricity, solar]
+seeds: [0, 1, 2]
+runs:
+- {method: frozen, tag: frozen}
+- method: periodic
+  tag: periodic_p1
+  set: {method.period: 1}
+- method: periodic
+  tag: periodic_p2
+  set: {method.period: 2}
+- method: periodic
+  tag: periodic_p4
+  set: {method.period: 4}
+- method: periodic
+  tag: periodic_p8
+  set: {method.period: 8}
+- method: periodic
+  tag: periodic_p16
+  set: {method.period: 16}
+- method: periodic
+  tag: periodic_p32
+  set: {method.period: 32}
+- method: drift
+  tag: drift_t0.0
+  set: {method.tau: 0.0}
+- method: drift
+  tag: drift_t0.05
+  set: {method.tau: 0.05}
+- method: drift
+  tag: drift_t0.1
+  set: {method.tau: 0.1}
+- method: drift
+  tag: drift_t0.2
+  set: {method.tau: 0.2}
+- method: drift
+  tag: drift_t0.4
+  set: {method.tau: 0.4}
+- method: drift
+  tag: drift_t0.8
+  set: {method.tau: 0.8}
+- method: vou
+  tag: vou_l0.003
+  set: {method.lam: 0.003}
+- method: vou
+  tag: vou_l0.01
+  set: {method.lam: 0.01}
+- method: vou
+  tag: vou_l0.03
+  set: {method.lam: 0.03}
+- method: vou
+  tag: vou_l0.1
+  set: {method.lam: 0.1}
+- method: vou
+  tag: vou_l0.3
+  set: {method.lam: 0.3}
+- method: vou
+  tag: vou_l1
+  set: {method.lam: 1}
+- method: vou
+  tag: vou_l3
+  set: {method.lam: 3}
+- method: vou
+  tag: vou_l10
+  set: {method.lam: 10}
+- method: vou
+  tag: vou_l0.5
+  set: {method.lam: 0.5}
+- method: vou
+  tag: vou_l0.6
+  set: {method.lam: 0.6}
+- method: vou
+  tag: vou_l0.7
+  set: {method.lam: 0.7}
+- method: vou
+  tag: vou_l0.8
+  set: {method.lam: 0.8}

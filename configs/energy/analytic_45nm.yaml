@@ -1,0 +1,12 @@
+# Per-operation energies from Horowitz (ISSCC 2014), 45 nm, fp32.
+backend: analytic
+bytes_per_elem: 4
+mac_pj: 4.6               # fp32 multiply 3.7 + add 0.9
+elementwise_pj: 0.9
+elementwise_ops: 8        # LayerNorm / GELU forward, ops per element
+elementwise_ops_bwd: 10
+adam_ops_per_param: 12
+sram_pj_per_byte: 1.25    # 5 pJ per 32-bit read from an 8 KB SRAM
+dram_pj_per_byte: 160     # 640 pJ per 32-bit DRAM access
+onchip_bytes: 262144      # tensors up to this size are assumed to stay on chip
+static_w: 0.0

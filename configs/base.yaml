@@ -1,0 +1,29 @@
+# Base run config. Groups (dataset, method, energy) are merged from their folders.
+seed: 0
+tag: null                 # results/<dataset>/<tag>/seed<k>; defaults to the method name
+threads: 1
+device: cpu               # cpu | cuda (the learner moves the model and buffers there)
+checkpoint: checkpoints/backbone.pt
+retention_windows: checkpoints/retention_windows.npy
+
+model: {context: 256, horizon: 24, patch_len: 16, d_model: 128, n_blocks: 8, expansion: 2}
+
+learner:
+  adapt_blocks: 2         # LoRA on the last k mixer blocks (0 = head only)
+  rank: 4
+  alpha: 8
+  lr: 0.002               # 'aggressive' regime, chosen on dev streams (ettm1_dev, synthetic_dev)
+  steps_per_update: 4     # full-batch Adam steps per update; conservative regime: lr 3e-4, 2 steps
+  buffer_steps: 16        # FIFO of the most recent labelled steps (x channels)
+  cache_prefix: true      # cache frozen-prefix activations instead of raw windows
+
+loop:
+  cost_ema: 0.3
+  min_buffer: 4
+  buffer_eval: false      # log buffer loss before/after each update (booked as `other`)
+  rolling_k: 8            # forecasts averaged for MASE before/after an update (measured runs)
+  budget: null            # e.g. {capacity_j: 1.0, income_j: 0.01}
+
+dataset: {name: ettm1}
+method: {name: vou}
+energy: {name: analytic_45nm}

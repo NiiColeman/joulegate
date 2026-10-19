@@ -1,0 +1,8 @@
+configs/sweeps/main_ttm.yaml synthetic
+configs/sweeps/main_ttm.yaml ettm1
+configs/sweeps/main_ttm.yaml electricity
+configs/sweeps/main_ttm.yaml solar
+configs/sweeps/gated_ttm.yaml synthetic
+configs/sweeps/gated_ttm.yaml ettm1
+configs/sweeps/gated_ttm.yaml electricity
+configs/sweeps/gated_ttm.yaml solar

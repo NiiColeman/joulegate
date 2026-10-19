@@ -1,0 +1,19 @@
+# Base config for Chronos-Bolt Tiny (8.7M params, amazon/chronos-bolt-tiny): 64-step quantile head, scored on 48,
+# merged over base.yaml by build(..., backbone="chronos"). The wrapper's blocks are [encoder, decoder]; LoRA goes
+# inside decoder blocks 2-3. dataset_overrides as in base_ttm.yaml.
+backbone: chronos
+checkpoint: null
+retention_windows: checkpoints/retention_windows_512_48.npy
+model: {name: chronos_bolt, repo: amazon/chronos-bolt-tiny, context: 512, horizon: 48}
+learner:
+  adapt_blocks: 1
+  lora_targets: [block.2.layer.0.SelfAttention.q, block.2.layer.0.SelfAttention.v, block.2.layer.0.SelfAttention.o,
+                 block.2.layer.1.EncDecAttention.q, block.2.layer.1.EncDecAttention.v, block.2.layer.1.EncDecAttention.o,
+                 block.2.layer.2.DenseReluDense.wi, block.2.layer.2.DenseReluDense.wo,
+                 block.3.layer.0.SelfAttention.q, block.3.layer.0.SelfAttention.v, block.3.layer.0.SelfAttention.o,
+                 block.3.layer.1.EncDecAttention.q, block.3.layer.1.EncDecAttention.v, block.3.layer.1.EncDecAttention.o,
+                 block.3.layer.2.DenseReluDense.wi, block.3.layer.2.DenseReluDense.wo]
+dataset_overrides:
+  all: {stride: 48}
+  synthetic: {synthetic.length: 42000}
+  electricity: {start: 2000}

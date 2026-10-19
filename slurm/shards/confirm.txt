@@ -1,0 +1,13 @@
+configs/sweeps/confirm.yaml synthetic
+configs/sweeps/confirm.yaml ettm1
+configs/sweeps/confirm.yaml electricity
+configs/sweeps/confirm.yaml solar
+configs/sweeps/confirm_ttm.yaml synthetic
+configs/sweeps/confirm_ttm.yaml ettm1
+configs/sweeps/confirm_ttm.yaml electricity
+configs/sweeps/confirm_ttm.yaml solar
+configs/sweeps/confirm_chronos.yaml synthetic
+configs/sweeps/confirm_chronos.yaml ettm1
+configs/sweeps/confirm_chronos.yaml electricity
+configs/sweeps/confirm_chronos.yaml solar
+configs/sweeps/confirm_core50.yaml core50

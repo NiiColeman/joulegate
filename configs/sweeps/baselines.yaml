@@ -1,0 +1,69 @@
+# Evaluation grid for carat, caract, upf, d3a, chosen on results/dev (synthetic_dev ettm1_dev)
+# by pick_grid.py: 3-100 % of always-update energy on some dev stream, near-identical
+# neighbours (update counts within 10 % on every dev stream) dropped. Analytic energy.
+# CARA-CT keeps no setting under the rule (every lam uses at most 1.3 % of always-update energy on both
+# dev streams, with identical update counts), so its highest-energy setting is evaluated as its single row.
+out: results/baselines
+datasets:
+- synthetic
+- ettm1
+- electricity
+- solar
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: cara
+  tag: carat_l10
+  set:
+    method.variant: threshold
+    method.lam: 10
+- method: cara
+  tag: carat_l1
+  set:
+    method.variant: threshold
+    method.lam: 1
+- method: cara
+  tag: carat_l0.1
+  set:
+    method.variant: threshold
+    method.lam: 0.1
+- method: cara
+  tag: carat_l0.01
+  set:
+    method.variant: threshold
+    method.lam: 0.01
+- method: cara
+  tag: carat_l0.001
+  set:
+    method.variant: threshold
+    method.lam: 0.001
+- method: cara
+  tag: caract_l0.0001
+  set:
+    method.variant: cumulative
+    method.lam: 0.0001
+- method: upf
+  tag: upf_l1
+  set:
+    method.lam: 1
+- method: upf
+  tag: upf_l10
+  set:
+    method.lam: 10
+- method: d3a
+  tag: d3a_w4_a1
+  set:
+    method.window: 4
+    method.alpha: 1
+- method: d3a
+  tag: d3a_w4_a1.96
+  set:
+    method.window: 4
+    method.alpha: 1.96
+- method: d3a
+  tag: d3a_w4_a3
+  set:
+    method.window: 4
+    method.alpha: 3

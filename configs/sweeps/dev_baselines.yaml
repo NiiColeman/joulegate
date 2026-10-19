@@ -1,0 +1,162 @@
+# Dev sweep for the prior-work baselines (CARA-T/CT, UPF, D3A) on the dev streams only; evaluation
+# grids are picked from it by pick_grid.py. lam is a price in this backbone's analytic joules, so a
+# wide log grid is tried first; a second pass may add values in gaps (documented here when it does).
+out: results/dev
+datasets:
+- synthetic_dev
+- ettm1_dev
+seeds:
+- 0
+runs:
+- method: cara
+  tag: carat_l0.0001
+  set:
+    method.variant: threshold
+    method.lam: 0.0001
+- method: cara
+  tag: carat_l0.001
+  set:
+    method.variant: threshold
+    method.lam: 0.001
+- method: cara
+  tag: carat_l0.01
+  set:
+    method.variant: threshold
+    method.lam: 0.01
+- method: cara
+  tag: carat_l0.1
+  set:
+    method.variant: threshold
+    method.lam: 0.1
+- method: cara
+  tag: carat_l1
+  set:
+    method.variant: threshold
+    method.lam: 1
+- method: cara
+  tag: carat_l10
+  set:
+    method.variant: threshold
+    method.lam: 10
+- method: cara
+  tag: carat_l100
+  set:
+    method.variant: threshold
+    method.lam: 100
+- method: cara
+  tag: carat_l1000
+  set:
+    method.variant: threshold
+    method.lam: 1000
+- method: cara
+  tag: caract_l0.0001
+  set:
+    method.variant: cumulative
+    method.lam: 0.0001
+- method: cara
+  tag: caract_l0.001
+  set:
+    method.variant: cumulative
+    method.lam: 0.001
+- method: cara
+  tag: caract_l0.01
+  set:
+    method.variant: cumulative
+    method.lam: 0.01
+- method: cara
+  tag: caract_l0.1
+  set:
+    method.variant: cumulative
+    method.lam: 0.1
+- method: cara
+  tag: caract_l1
+  set:
+    method.variant: cumulative
+    method.lam: 1
+- method: cara
+  tag: caract_l10
+  set:
+    method.variant: cumulative
+    method.lam: 10
+- method: cara
+  tag: caract_l100
+  set:
+    method.variant: cumulative
+    method.lam: 100
+- method: cara
+  tag: caract_l1000
+  set:
+    method.variant: cumulative
+    method.lam: 1000
+- method: upf
+  tag: upf_l0.0001
+  set:
+    method.lam: 0.0001
+- method: upf
+  tag: upf_l0.001
+  set:
+    method.lam: 0.001
+- method: upf
+  tag: upf_l0.01
+  set:
+    method.lam: 0.01
+- method: upf
+  tag: upf_l0.1
+  set:
+    method.lam: 0.1
+- method: upf
+  tag: upf_l1
+  set:
+    method.lam: 1
+- method: upf
+  tag: upf_l10
+  set:
+    method.lam: 10
+- method: upf
+  tag: upf_l100
+  set:
+    method.lam: 100
+- method: upf
+  tag: upf_l1000
+  set:
+    method.lam: 1000
+- method: d3a
+  tag: d3a_w4_a1
+  set:
+    method.window: 4
+    method.alpha: 1
+- method: d3a
+  tag: d3a_w4_a1.96
+  set:
+    method.window: 4
+    method.alpha: 1.96
+- method: d3a
+  tag: d3a_w4_a3
+  set:
+    method.window: 4
+    method.alpha: 3
+- method: d3a
+  tag: d3a_w4_a5
+  set:
+    method.window: 4
+    method.alpha: 5
+- method: d3a
+  tag: d3a_w16_a1
+  set:
+    method.window: 16
+    method.alpha: 1
+- method: d3a
+  tag: d3a_w16_a1.96
+  set:
+    method.window: 16
+    method.alpha: 1.96
+- method: d3a
+  tag: d3a_w16_a3
+  set:
+    method.window: 16
+    method.alpha: 3
+- method: d3a
+  tag: d3a_w16_a5
+  set:
+    method.window: 16
+    method.alpha: 5

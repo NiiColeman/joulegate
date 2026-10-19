@@ -1,0 +1,64 @@
+# Accuracy matrix on CORe50: accuracy on every domain (base + the 9 streamed sessions, 640 test frames
+# each from the half the stream does not train on) before the stream and after each session.
+# Policies: frozen, always-update, and each family's best analytic setting within 10 % of
+# always-update energy (paper/tables/tab_vision.tex). Estimated energy, on GPU.
+out: results/domains
+datasets:
+- core50
+seeds:
+- 0
+- 1
+- 2
+runs:
+- method: frozen
+  tag: frozen
+  set:
+    domain_eval:
+      n: 640
+    device: cuda
+- method: periodic
+  tag: periodic_p1
+  set:
+    method.period: 1
+    domain_eval:
+      n: 640
+    device: cuda
+- method: periodic
+  tag: periodic_p16
+  set:
+    method.period: 16
+    domain_eval:
+      n: 640
+    device: cuda
+- method: drift
+  tag: drift_t0.4
+  set:
+    method.tau: 0.4
+    domain_eval:
+      n: 640
+    device: cuda
+- method: vou
+  tag: vou_l5
+  set:
+    method.lam: 5
+    domain_eval:
+      n: 640
+    device: cuda
+- method: vou_gated
+  tag: vougerr_t0.05_l10
+  set:
+    method.gate: error
+    method.tau: 0.05
+    method.lam: 10
+    domain_eval:
+      n: 640
+    device: cuda
+- method: vou_gated
+  tag: vougin_k5_l5
+  set:
+    method.gate: input
+    method.kappa: 5
+    method.lam: 5
+    domain_eval:
+      n: 640
+    device: cuda

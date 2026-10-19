@@ -1,0 +1,2 @@
+policy: oracle            # hindsight reference, not realizable
+min_gain: 0.0

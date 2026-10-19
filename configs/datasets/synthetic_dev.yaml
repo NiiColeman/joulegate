@@ -1,0 +1,8 @@
+file: synthetic           # dev copy of the stress test with a different data seed
+synthetic: {length: 24000, channels: 8, seed: 100}
+season: 96
+stride: 24
+start: 2000
+n_steps: 400
+warmup: 2000
+freq_token: 5        # TTM-R2 frequency token: 15 min
